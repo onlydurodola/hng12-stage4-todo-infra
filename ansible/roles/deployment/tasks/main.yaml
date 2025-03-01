@@ -34,15 +34,3 @@
   args:
     chdir: /home/ubuntu/app/
 
-- name: Wait for app to be accessible
-  uri:
-    url: "https://oluwatobiloba.tech"
-    status_code: 200
-    validate_certs: false
-  register: result
-  until: result.status == 200
-  retries: 10
-  delay: 10
-  # Add SSH retry settings
-  ignore_errors: true
-  failed_when: result.status != 200
