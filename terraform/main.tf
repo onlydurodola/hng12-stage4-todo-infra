@@ -70,6 +70,7 @@ locals {
 resource "local_file" "ansible_inventory" {
   content  = templatefile("${path.module}/inventory.tpl", { public_ip = aws_instance.app_server.public_ip })
   filename = "${path.module}/../ansible/inventory.ini"
+  
 }
 
 resource "null_resource" "ansible_deploy" {
