@@ -76,7 +76,6 @@ resource "null_resource" "ansible_deploy" {
   depends_on = [aws_instance.app_server, local_file.ansible_inventory]
 
   provisioner "local-exec" {
-    command     = "sleep 120 && ANSIBLE_CONFIG=/home/ubuntu/hng12-stage4-todo-infra/ansible.cfg ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /home/ubuntu/hng12-stage4-todo-infra/ansible/inventory.ini /home/ubuntu/hng12-stage4-todo-infra/ansible/playbook.yaml -vvv"
-    working_dir = "/home/ubuntu/hng12-stage4-todo-infra"
+    command = "./run_ansible.sh"
   }
 }
