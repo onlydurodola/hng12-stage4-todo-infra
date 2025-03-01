@@ -2,6 +2,8 @@
   ansible.builtin.file:
     path: /home/ubuntu/app
     state: absent
+  ignore_errors: true
+  when: not (ansible_stat.stat.exists and ansible_stat.stat.isdir and ansible_stat.stat.path == "/home/ubuntu/app/letsencrypt")
 
 - name: Ensure app directory exists
   file:
