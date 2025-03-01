@@ -4,9 +4,6 @@ terraform.tfstate.backup
 *.tfstate
 *.tfstate.*
 
-# Ignore Terraform lock file
-.terraform.lock.hcl
-
 # Ignore Terraform provider plugins
 .terraform/
 
